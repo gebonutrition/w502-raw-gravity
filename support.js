@@ -41,6 +41,10 @@
 
       formState.style.display = 'none';
       successState.style.display = 'block';
+	  
+	  setTimeout(() => {
+	  window.location.href = 'https://amazon.com';
+	}, 1500);
 
     } catch (error) {
       console.error('Form submission error:', error);
