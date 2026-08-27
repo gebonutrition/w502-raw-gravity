@@ -5,6 +5,26 @@
 
   const formState = document.getElementById('email-form-state');
   const successState = document.getElementById('success-state');
+	const SOURCE_KEY = 'rawGravityLeadSource';
+
+	const allowedSources = [
+	  'instagram',
+	  'tiktok',
+	  'facebook',
+	  'influencer',
+	  'email'
+	];
+
+	const urlSource = new URLSearchParams(window.location.search)
+	  .get('source')
+	  ?.trim()
+	  .toLowerCase();
+
+	if (urlSource && allowedSources.includes(urlSource)) {
+	  sessionStorage.setItem(SOURCE_KEY, urlSource);
+	}
+
+	const source = sessionStorage.getItem(SOURCE_KEY) || 'direct';
 
   if (!form || !emailInput || !submitButton || !formState || !successState) {
     return;
@@ -29,7 +49,10 @@
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ email })
+        body: JSON.stringify({
+		  email,
+		  source
+		})
       });
 
       const data = await response.json().catch(() => ({}));
