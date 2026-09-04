@@ -144,10 +144,10 @@ export default async function handler(req, res) {
      */
     const amazonUrls = {
       tiktok:
-        'https://www.amazon.com/dp/B0GTWB11LW?maas=maas_adg_2A88665EB9ECA432C54E7A806AF52010_afap_abs&ref_=aa_maas&tag=maas,
+        'https://www.amazon.com/dp/B0GTWB11LW?maas=maas_adg_2A88665EB9ECA432C54E7A806AF52010_afap_abs&ref_=aa_maas&tag=maas',
 
       meta:
-        'https://www.amazon.com/dp/B0GTWB11LW?maas=maas_adg_8834E9BB8D74B433FF189A3983F9C467_afap_abs&ref_=aa_maas&tag=maas,
+        'https://www.amazon.com/dp/B0GTWB11LW?maas=maas_adg_8834E9BB8D74B433FF189A3983F9C467_afap_abs&ref_=aa_maas&tag=maas',
     };
 
     const normalizedSource = cleanSource.toLowerCase();
