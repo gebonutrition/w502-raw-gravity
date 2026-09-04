@@ -57,6 +57,7 @@
         },
         body: JSON.stringify({
           email,
+		  landing: 'w502',
           source,
           creative
         })
@@ -72,8 +73,13 @@
       formState.style.display = 'none';
       successState.style.display = 'block';
 
-      window.rawGravityTrackTikTokLead();
-      window.rawGravityTrackMetaLead();
+		if (typeof window.rawGravityTrackTikTokLead === 'function') {
+		  window.rawGravityTrackTikTokLead();
+		}
+
+		if (typeof window.rawGravityTrackMetaLead === 'function') {
+		  window.rawGravityTrackMetaLead();
+		}
 
       setTimeout(() => {
         window.location.href =

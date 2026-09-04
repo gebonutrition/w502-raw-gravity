@@ -7,7 +7,7 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { email, source, creative } = req.body || {};
+    const { email, landing, source, creative } = req.body || {};
 
     if (!email || typeof email !== 'string') {
       return res.status(400).json({
@@ -16,9 +16,10 @@ export default async function handler(req, res) {
       });
     }
 
-    const cleanEmail = email.trim();
-    const cleanSource = String(source || 'direct').trim();
-    const cleanCreative = String(creative || 'unknown').trim();
+	const cleanEmail = email.trim();
+	const cleanLanding = String(landing || 'w502').trim();
+	const cleanSource = String(source || 'direct').trim();
+	const cleanCreative = String(creative || 'unknown').trim();
 
     const apiKey = process.env.KLAVIYO_API_KEY;
 
@@ -53,6 +54,7 @@ export default async function handler(req, res) {
             attributes: {
               email: cleanEmail,
               properties: {
+				landing: cleanLanding,
                 source: cleanSource,
                 creative: cleanCreative
               }
