@@ -1,10 +1,15 @@
 (function () {
   const params = new URLSearchParams(window.location.search);
-  const fbPixelId = params.get('fbpixel');
+  const requestedFbPixelId = params.get('fbpixel');
 
-  if (!fbPixelId) {
-    return;
-  }
+  // Always initialize the main Raw Gravity Meta Pixel.
+  // Allow an additional campaign-specific pixel through the URL.
+  const fbPixelIds = [
+    ...new Set([
+      '1632582321547641',
+      requestedFbPixelId
+    ].filter(Boolean))
+  ];
 
   !function(f,b,e,v,n,t,s)
   {
@@ -36,7 +41,8 @@
     'https://connect.facebook.net/en_US/fbevents.js'
   );
 
-  window.fbq('init', fbPixelId);
+  fbPixelIds.forEach((id) => window.fbq('init', id));
+
   window.fbq('track', 'PageView');
 
   let leadTracked = false;
