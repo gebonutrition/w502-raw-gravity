@@ -1836,7 +1836,410 @@
   }
 
 }
+/* W502 MOBILE LAYOUT FIX */
+@media (max-width: 640px) {
 
+  /* HEADER: brand + Amazon CTA */
+  .topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    min-height: 68px;
+    padding: 10px 16px;
+  }
+
+  .topbar .brand {
+    flex: 0 1 100px;
+    max-width: 105px;
+    white-space: normal;
+    font-size: 14px;
+    line-height: 1.15;
+  }
+
+  .topbar > .amazon-btn {
+    display: inline-flex !important;
+    flex: 0 1 auto;
+    width: auto;
+    max-width: calc(100% - 104px);
+  }
+
+  .topbar > .amazon-btn .amazon {
+    flex: 0 0 auto;
+    padding: 7px 10px;
+    font-size: 10px;
+  }
+
+  .topbar > .amazon-btn .offer {
+    padding: 7px 10px;
+    font-size: 10px;
+  }
+
+  /* Hide the extra fixed CTA at the bottom of the screen */
+  .mobile-fixed-amazon {
+    display: none !important;
+  }
+
+
+  /* HERO: match the reference height and element positions */
+  .hero {
+    position: relative;
+    height: 457px;
+    min-height: 457px;
+    overflow: hidden;
+    background-position: 63% center;
+  }
+
+  .hero-content {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .hero .pills {
+    position: absolute;
+    top: 16px;
+    left: 20px;
+    margin: 0;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 8px;
+  }
+
+  .hero .pill {
+    padding: 6px 14px;
+    font-size: 12px;
+  }
+
+  .hero h1 {
+    position: absolute;
+    top: 55px;
+    left: 20px;
+    width: 190px;
+    max-width: 190px;
+    margin: 0;
+    font-size: 26px;
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+  }
+
+  .hero .hero-sub {
+    position: absolute;
+    top: 146px;
+    left: 20px;
+    width: 220px;
+    max-width: 220px;
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.48;
+  }
+
+  .hero .rating {
+    position: absolute;
+    top: 196px;
+    left: 20px;
+    width: 230px;
+    max-width: 230px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    column-gap: 8px;
+    row-gap: 2px;
+    margin: 0;
+  }
+
+  .hero .stars {
+    font-size: 18px;
+    letter-spacing: 1.5px;
+  }
+
+  .hero .rating strong {
+    font-size: 14px;
+  }
+
+  .hero .rating .dot {
+    display: none;
+  }
+
+  .hero .rating > span:last-child {
+    flex: 0 0 100%;
+    font-size: 12px;
+    line-height: 1.2;
+  }
+
+
+  /* HERO PRICE CARD:
+     Make .price-row static so it doesn't shift the absolute card down. */
+  .hero .price-row {
+    position: static !important;
+    display: block;
+    width: 0;
+    height: 0;
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+  }
+
+  .hero .hero-price-card {
+    position: absolute;
+    top: 239px;
+    left: 20px;
+    width: 151px;
+    max-width: calc(100vw - 40px);
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    overflow: visible;
+    z-index: 3;
+  }
+
+  .hero .hero-price-card__top {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 5px;
+    padding: 6px 10px 2px;
+    background: #fff;
+    border: 1.5px solid var(--gold);
+    border-bottom: 0;
+    border-radius: 10px 10px 0 0;
+  }
+
+  .hero .hero-price-card__badge {
+    flex: 0 0 auto;
+    padding: 4px 6px;
+    font-size: 8px;
+    border-radius: 4px;
+  }
+
+  .hero .hero-price-card__label {
+    font-size: 8px;
+    line-height: 1.2;
+    white-space: nowrap;
+  }
+
+  .hero .hero-price-card__values {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    gap: 0;
+    min-height: 43px;
+    padding: 5px 10px 12px;
+    background: #fff;
+    border-left: 1.5px solid var(--gold);
+    border-right: 1.5px solid var(--gold);
+    border-bottom: 1.5px solid var(--gold);
+    border-radius: 0 0 10px 10px;
+  }
+
+  .hero .hero-price-card__values .price {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    white-space: nowrap;
+  }
+
+  .hero .hero-price-card__values .price-new {
+    font-size: 26px;
+    line-height: 1;
+  }
+
+  .hero .hero-price-card__values .price-old {
+    font-size: 12px;
+    line-height: 1;
+  }
+
+  .hero .hero-price-card__discount {
+    position: absolute;
+    left: 96px;
+    top: 20px;
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    color: var(--orange-dark);
+    font: 800 11px/1 'Sora', sans-serif;
+    white-space: nowrap;
+  }
+
+  /* Separate timer from the price card, like in the reference */
+  .hero .hero-price-card .timer-box {
+    position: static;
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between;
+    gap: 6px;
+    width: 168px;
+    max-width: calc(100vw - 40px);
+    min-width: 0;
+    height: auto;
+    margin: 7px 0 0;
+    padding: 5px 8px;
+    background: #fff;
+    border: 1.5px solid var(--gold);
+    border-radius: 8px;
+  }
+
+  .hero .hero-price-card .timer-box span:first-child {
+    max-width: none;
+    font: 600 9px/1 'Manrope', sans-serif;
+    white-space: nowrap;
+  }
+
+  .hero .hero-price-card .timer-box span:last-child {
+    font: 700 12px/1 'SF Mono', ui-monospace, monospace;
+    white-space: nowrap;
+  }
+
+
+  /* HERO CTA: wide button below the timer */
+  .hero > .hero-content > .amazon-btn {
+    position: absolute;
+    top: 394px;
+    left: 20px;
+    right: 16px;
+    bottom: auto;
+    display: flex;
+    align-items: stretch;
+    width: auto;
+    max-width: none;
+    margin: 0;
+    transform: none;
+    z-index: 4;
+  }
+
+  .hero > .hero-content > .amazon-btn .amazon {
+    flex: 0 0 auto;
+    padding: 12px;
+    font-size: 12px;
+  }
+
+  .hero > .hero-content > .amazon-btn .offer {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 10px;
+    font-size: 12px;
+    white-space: nowrap;
+  }
+
+
+  /* SYMPTOMS: reduce the height of the burgundy section */
+  .symptom-strip {
+    padding: 18px 20px;
+  }
+
+  .symptom-inner {
+    display: block;
+  }
+
+  .symptom-inner h2 {
+    margin: 0 0 10px;
+    font-size: 20px;
+    line-height: 1.2;
+  }
+
+  .symptoms {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .symptoms span {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+
+
+  /* BENEFITS: heading and shorter cards */
+  .benefits-section {
+    padding: 64px 16px 48px 20px;
+  }
+
+  .benefits-section h2 {
+    position: relative;
+    z-index: 1;
+    margin: 0 0 24px;
+    font-size: 26px;
+    line-height: 1.15;
+    text-align: left;
+  }
+
+  .benefits-grid {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .benefit-side {
+    display: contents;
+  }
+
+  .benefit-item,
+  .benefit-item.left,
+  .benefit-item.right {
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+    min-height: 66px;
+    margin: 0;
+    padding: 12px 16px;
+    gap: 12px;
+    box-sizing: border-box;
+    background: #fff;
+    border-radius: 14px;
+  }
+
+  .benefit-copy,
+  .benefit-item.left .benefit-copy,
+  .benefit-item.right .benefit-copy {
+    display: grid;
+    grid-template-columns: 22px minmax(0, 1fr);
+    column-gap: 12px;
+    row-gap: 3px;
+    align-items: start;
+    flex: 1;
+    min-width: 0;
+    text-align: left;
+  }
+
+  .benefit-copy .icon {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    width: 20px;
+    height: 20px;
+    margin: 1px 0 0;
+  }
+
+  .benefit-copy h3 {
+    grid-column: 2;
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.2;
+  }
+
+  .benefit-copy p {
+    grid-column: 2;
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.3;
+  }
+
+  .connector,
+  .cup-wrap {
+    display: none;
+  }
+
+}
+/* END W502 MOBILE LAYOUT FIX */
 </style>
 
 </head>
