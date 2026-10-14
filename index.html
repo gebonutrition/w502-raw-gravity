@@ -2075,7 +2075,7 @@
     align-items: center;
     justify-content: space-between;
     gap: 6px;
-    width: 168px;
+    width: 198px;
     max-width: calc(100vw - 40px);
     min-width: 0;
     height: auto;
@@ -2088,11 +2088,13 @@
 
   .hero .hero-price-card .timer-box span:first-child {
     max-width: none;
+    flex-shrink: 0;
     font: 600 9px/1 'Manrope', sans-serif;
     white-space: nowrap;
   }
 
   .hero .hero-price-card .timer-box span:last-child {
+    flex-shrink: 0;
     font: 700 12px/1 'SF Mono', ui-monospace, monospace;
     white-space: nowrap;
   }
